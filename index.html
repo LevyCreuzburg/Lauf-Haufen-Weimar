@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produktvorstellung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .product-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .product-info {
+            flex: 1 1 400px;
+            padding: 20px;
+        }
+        .product-info h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .product-info p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+        .product-video {
+            flex: 1 1 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .product-video iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Willkommen bei unserer Produktvorstellung!</h1>
+</header>
+
+<div class="product-container">
+    <div class="product-info">
+        <h1>Super Produkt 2025</h1>
+        <p>Dieses Produkt ist das Beste, was Sie dieses Jahr kaufen können. Es bietet eine herausragende Leistung und ist auf Ihre Bedürfnisse abgestimmt. Es verfügt über modernste Funktionen und eine benutzerfreundliche Bedienung. Sie werden begeistert sein!</p>
+        <a href="#" class="button">Mehr erfahren</a>
+    </div>
+
+    <div class="product-video">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Produkt Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+</body>
+</html>
