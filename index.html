@@ -3,30 +3,58 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>LaufhaufenWeimar — Mehr Infos</title>
+  <title>LaufhaufenWeimar</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="container">
+    <div class="container header-inner">
       <h1 class="brand">LaufhaufenWeimar</h1>
+
       <form id="signup-form" class="signup-form" aria-label="Anmeldung für mehr Infos">
         <label for="email" class="visually-hidden">E‑Mail</label>
         <input id="email" name="email" type="email" placeholder="Deine E‑Mail" required />
-        <button type="submit">Anmelden</button>
+        <button id="signup-button" type="submit">Anmelden</button>
       </form>
+
+      <div id="user-actions" class="user-actions" hidden>
+        <span id="user-welcome" class="user-welcome"></span>
+        <button id="logout-button" class="ghost">Abmelden</button>
+      </div>
     </div>
   </header>
 
-  <main class="hero">
-    <div class="container">
-      <h2>Willkommen beim Laufhaufen Weimar</h2>
-      <p>Trage dich oben ein, um Neuigkeiten zu Trainings, Terminen und Aktionen zu erhalten.</p>
-      <p class="muted">Wir geben deine E‑Mail nicht weiter. Du kannst dich jederzeit abmelden.</p>
-    </div>
-  </main>
+  <main class="main">
+    <!-- Landing / Teaser -->
+    <section id="hero" class="hero">
+      <div class="container">
+        <h2>Willkommen beim Laufhaufen Weimar</h2>
+        <p>Trage dich oben ein, um Neuigkeiten zu Trainings, Terminen und Aktionen zu erhalten.</p>
+        <p class="muted">Wir geben deine E‑Mail nicht weiter. Du kannst dich jederzeit abmelden.</p>
+      </div>
+    </section>
 
-  <div id="message" class="message" role="status" aria-live="polite"></div>
+    <!-- Angemeldete Ansicht / Dashboard -->
+    <section id="dashboard" class="dashboard" hidden>
+      <div class="container">
+        <h2>Hallo und willkommen im Mitgliederbereich!</h2>
+        <p>Hier findest du Termine, Trainings‑Infos und exklusive Hinweise.</p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Nächstes Training</h3>
+            <p>Donnerstag, 18:30 — Treffpunkt: Goethepark</p>
+          </article>
+          <article class="card">
+            <h3>Neuigkeiten</h3>
+            <p>Wir planen einen 5‑km Lauf im März — melde dich an, um dabei zu sein.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div id="message" class="message" role="status" aria-live="polite"></div>
+  </main>
 
   <script src="script.js"></script>
 </body>
