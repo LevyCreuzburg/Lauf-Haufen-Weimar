@@ -2,6 +2,8 @@
   --bg:#f7f7f9;
   --accent:#1f7a5a;
   --text:#202124;
+  --muted:#666;
+  --card:#ffffff;
 }
 
 *{box-sizing:border-box}
@@ -10,17 +12,32 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neu
 .container{max-width:1000px;margin:0 auto;padding:1rem;}
 
 .site-header{background:#fff;border-bottom:1px solid #e6e6e6;position:sticky;top:0;z-index:100;}
-.site-header .container{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem;}
 .brand{margin:0;font-size:1.1rem;color:var(--accent);}
 
+/* Form / header */
 .signup-form{display:flex;gap:0.5rem;align-items:center;}
-.signup-form input[type="email"]{padding:0.5rem 0.6rem;border:1px solid #ccc;border-radius:4px;}
-.signup-form button{background:var(--accent);color:white;border:none;padding:0.55rem 0.9rem;border-radius:4px;cursor:pointer}
+.signup-form input[type="email"]{padding:0.45rem 0.6rem;border:1px solid #ccc;border-radius:4px;}
+.signup-form button{background:var(--accent);color:white;border:none;padding:0.45rem 0.75rem;border-radius:4px;cursor:pointer}
 .signup-form button:active{opacity:0.9}
 
-.hero{padding:4rem 1rem 6rem;text-align:center;}
-.hero h2{margin:0 0 0.5rem 0;font-size:2rem;}
-.muted{color:#666;margin-top:0.5rem}
+.user-actions{display:flex;gap:0.5rem;align-items:center}
+.user-welcome{color:var(--text)}
+.ghost{background:transparent;border:1px solid #ccc;padding:0.35rem 0.5rem;border-radius:4px;cursor:pointer}
 
-.visually-hidden{position:absolute !important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;}
+/* Main */
+.main{padding:2rem 0 6rem;}
+.hero{text-align:center;padding:3rem 1rem;background:linear-gradient(180deg, #fff, #fbfbfb);}
+.hero h2{margin:0 0 0.5rem 0;font-size:1.6rem;}
+.muted{color:var(--muted);margin-top:0.5rem}
+
+/* Dashboard */
+.dashboard{padding:1rem;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.card{background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
+
+/* Message */
 .message{max-width:1000px;margin:1rem auto;padding:0 1rem;color:var(--accent)}
+
+/* Accessibility helper */
+.visually-hidden{position:absolute !important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;}
