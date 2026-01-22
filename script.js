@@ -13,11 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Ersetze diesen Endpoint durch deinen echten Formular-Endpoint (Formspree, Netlify Forms, eigenes API)
   const endpoint = 'https://formspree.io/f/xlgjrwwn';
-await fetch(endpoint, {
-  method: 'POST',
-  headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-  body: JSON.stringify({ email })
-});
+
   // Wenn in localStorage schon eine Anmeldung steht, zeig Dashboard
   const subscribedEmail = localStorage.getItem('laufhaufen_email');
   if (subscribedEmail) showDashboard(subscribedEmail);
@@ -30,12 +26,21 @@ await fetch(endpoint, {
     message.textContent = 'Sende Anmeldung…';
 
     try {
-      // Beispiel: POST an einen Formular-Endpoint
+      // POST an den Formular-Endpoint
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })
       });
+
+      // Lese die rohe Antwort als Text (damit wir Fehlermeldungen sehen, auch wenn es kein JSON ist)
+      const raw = await res.text();
+      let parsed = null;
+      try { parsed = JSON.parse(raw); } catch (err) { /* not JSON */ }
+
+      console.log('Form response status:', res.status);
+      console.log('Form response raw:', raw);
+      console.log('Form response parsed:', parsed);
 
       if (res.ok) {
         message.textContent = 'Danke! Deine E‑Mail wurde gespeichert.';
@@ -43,16 +48,13 @@ await fetch(endpoint, {
         showDashboard(email);
         form.reset();
       } else {
-        // Falls dein Dienst anderes Format zurückgibt, passe das Parsing an
-        const data = await res.json().catch(()=>({}));
-        const err = data.error || 'Beim Absenden ist ein Fehler aufgetreten.';
-        message.textContent = err;
+        // Formspree gibt manchmal JSON { error: "..." } oder nur Text "Form not found"
+        const errText = (parsed && parsed.error) ? parsed.error : raw || 'Beim Absenden ist ein Fehler aufgetreten.';
+        message.textContent = errText;
       }
     } catch (err) {
-      // Für lokale Tests kannst du hier die Anmeldung simulieren:
-      // localStorage.setItem('laufhaufen_email', email); showDashboard(email);
       message.textContent = 'Netzwerkfehler — bitte später versuchen.';
-      console.error(err);
+      console.error('Fetch error:', err);
     }
   });
 
