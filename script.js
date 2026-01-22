@@ -13,7 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Ersetze diesen Endpoint durch deinen echten Formular-Endpoint (Formspree, Netlify Forms, eigenes API)
   const endpoint = 'https://formspree.io/f/xlgjrwwn';
-
+await fetch(endpoint, {
+  method: 'POST',
+  headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email })
+});
   // Wenn in localStorage schon eine Anmeldung steht, zeig Dashboard
   const subscribedEmail = localStorage.getItem('laufhaufen_email');
   if (subscribedEmail) showDashboard(subscribedEmail);
