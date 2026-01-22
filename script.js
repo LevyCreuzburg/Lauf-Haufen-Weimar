@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const logoutButton = document.getElementById('logout-button');
 
   // Ersetze diesen Endpoint durch deinen echten Formular-Endpoint (Formspree, Netlify Forms, eigenes API)
-  const endpoint = 'https://formspree.io/f/YOUR_FORM_ID';
+  const endpoint = 'https://formspree.io/f/xlgjrwwn';
 
   // Wenn in localStorage schon eine Anmeldung steht, zeig Dashboard
   const subscribedEmail = localStorage.getItem('laufhaufen_email');
