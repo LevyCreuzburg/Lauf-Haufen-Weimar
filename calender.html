@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>FullCalendar Beispiel</title>
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+<style>
+  #calendar { max-width: 900px; margin: 40px auto; }
+</style>
+</head>
+<body>
+
+<div id="calendar"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById('calendar');
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        locale: 'de',
+        events: [
+            { title: 'Meeting', start: '2026-02-10' },
+            { title: 'Urlaub', start: '2026-02-15', end: '2026-02-20' }
+        ]
+    });
+    calendar.render();
+});
+</script>
+
+</body>
+</html>
