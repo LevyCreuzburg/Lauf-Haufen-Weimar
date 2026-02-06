@@ -1,7 +1,6 @@
 function updateClock() {
   const clockContainer = document.getElementById('digital-clock');
   const now = new Date();
-  // Stunden & Minuten immer zweistellig
   const h = now.getHours().toString().padStart(2, '0');
   const m = now.getMinutes().toString().padStart(2, '0');
   const s = now.getSeconds().toString().padStart(2, '0');
